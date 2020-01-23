@@ -65,9 +65,9 @@
               <span class="hidden-xs">Alexander Pierce</span>
               <i class="fa fa-sign-out"></i>
             </a>
-            
+
           </li>
-          
+
         </ul>
       </div>
     </nav>
@@ -94,52 +94,47 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Charts</span>
+            <i class="fa fa-institution"></i>
+            <span>BPK</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+            <li><a href="/input-bpk"><i class="fa fa-circle-o"></i> Isi Temuan</a></li>
+            <li><a href="/import-bpk"><i class="fa fa-circle-o"></i> Import Temuan</a></li>
+            <li><a href="/list-bpk"><i class="fa fa-circle-o"></i> Daftar Temuan</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
+            <i class="fa fa-legal"></i>
+            <span>Inspektorat Jenderal</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+            <li><a href="/input-itjen"><i class="fa fa-circle-o"></i> Isi Temuan</a></li>
+            <li><a href="/import-itjen"><i class="fa fa-circle-o"></i> Import Temuan</a></li>
+            <li><a href="/list-itjen"><i class="fa fa-circle-o"></i> Daftar Temuan</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
+            <i class="fa fa-edit"></i> <span>Unit Kerja</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+            <li><a href="/add-esi"><i class="fa fa-circle-o"></i> Eselon I</a></li>
+            <li><a href="/add-esii"><i class="fa fa-circle-o"></i> Eselon II</a></li>
           </ul>
         </li>
-   
-        
-        
+
+
+
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/input', function () {
+Route::get('/input-bpk', function () {
     return view('back.bpk.input');
 });
 Route::get('/input-itjen', function () {
@@ -25,6 +25,12 @@ Route::get('/import-bpk', function () {
 });
 Route::get('/import-itjen', function () {
     return view('back.itjen.import');
+});
+Route::get('/add-esi', function () {
+    return view('back.unit.esi');
+});
+Route::get('/add-esii', function () {
+    return view('back.unit.esii');
 });
 Auth::routes();
 
