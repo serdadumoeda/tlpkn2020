@@ -16,12 +16,12 @@
 <div class=" col-lg-9 box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form action="{{route('esi.store')}}" method="post">
               <div class="box-body">
-
+                @csrf
                 <div class="form-group">
                   <label for="exampleInputEmail1">Unit Eselon I</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tuliskan Nama Unit Eselon I">
+                  <input type="text" name="name" class="form-control" placeholder="Tuliskan nama unit Eselon I">
                 </div>
               </div>
               <!-- /.box-body -->

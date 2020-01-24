@@ -33,6 +33,7 @@ Route::get('/add-esii', function () {
     return view('back.unit.esii');
 });
 
+Route::resource('esi','UnitEsI')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

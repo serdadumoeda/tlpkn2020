@@ -128,7 +128,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/add-esi"><i class="fa fa-circle-o"></i> Eselon I</a></li>
+            <li><a href="{{route('esi.create')}}"><i class="fa fa-circle-o"></i> Eselon I</a></li>
             <li><a href="/add-esii"><i class="fa fa-circle-o"></i> Eselon II</a></li>
           </ul>
         </li>
