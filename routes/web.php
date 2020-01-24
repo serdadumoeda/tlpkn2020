@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('back.dash');
 });
 Route::get('/input-bpk', function () {
     return view('back.bpk.input');
@@ -32,6 +32,7 @@ Route::get('/add-esi', function () {
 Route::get('/add-esii', function () {
     return view('back.unit.esii');
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
