@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Eseloni;
+use App\Eselonii;
 
-class UnitEsI extends Controller
+class UnitEsII extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,8 +25,9 @@ class UnitEsI extends Controller
      */
     public function create()
     {
-        $show=Eseloni::all();
-        return view('back.unit.esi',["show"=>$show]);
+        $show = Eselonii::with('esi')->orderBy('id','asc')->paginate(10);
+        $esi = Eseloni::all();
+        return view('back.unit.esii',["show"=>$show,"esi"=>$esi]);
     }
 
     /**
@@ -36,10 +38,14 @@ class UnitEsI extends Controller
      */
     public function store(Request $request)
     {
-        $esi = new Eseloni;
-        $esi->name = $request->name;
-        $esi->save();
-        return redirect()->back()->withInfo('Unit Eselon I Berhasil ditambahkan...');
+        $post = New Eselonii;
+        $post->esi_id=$request->esi_id;
+        $post->name = $request->name;
+        $post->kd_satker = $request->kd_satker;
+
+        $post->save();
+
+        return back()->withInfo('Satuan Kerja Berhasil ditambahkan...');
     }
 
     /**
@@ -73,11 +79,14 @@ class UnitEsI extends Controller
      */
     public function update(Request $request, $id)
     {
-        $esi = Eseloni::find($id);
-        $esi->name = $request->name;
-        $esi->save();
+        $post = Eselonii::find($id);
+        $post->esi_id=$request->esi_id;
+        $post->name = $request->name;
+        $post->kd_satker = $request->kd_satker;
 
-        return redirect()->back()->withInfo('Unit Eselon I Berhasil diubah...');
+        $post->save();
+
+        return back()->withInfo('Satuan Kerja berhasil diedit...');
     }
 
     /**
@@ -88,8 +97,8 @@ class UnitEsI extends Controller
      */
     public function destroy($id)
     {
-        $esi = Eseloni::find($id);
-        $esi->delete();
-        return redirect()->back()->withInfo('Unit Eselon I Berhasil dihapus...');
+        $category = Eselonii::find($id);
+        $category->delete();
+        return back()->withInfo('Satuan Kerja berhasil dihapus.... ');
     }
 }

@@ -13,12 +13,15 @@ class CreateEseloniisTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('unit_eselon_ii', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('esi_id')->nullable()->unsigned();
-            $table->string('kd_satker')->nullable();
+            $table->string('kd_satker');
             $table->string('name');
+            $table->unsignedBigInteger('esi_id');
+            
             $table->timestamps();
+            $table->foreign('esi_id')->references('id')->on('unit_eselon_i')->onDelete('cascade');
         });
     }
 

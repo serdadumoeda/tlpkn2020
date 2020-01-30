@@ -29,11 +29,9 @@ Route::get('/import-itjen', function () {
 Route::get('/add-esi', function () {
     return view('back.unit.esi');
 });
-Route::get('/add-esii', function () {
-    return view('back.unit.esii');
-});
 
 Route::resource('esi','UnitEsI')->middleware('auth');
+Route::resource('esii','UnitEsII')->middleware('auth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
