@@ -87,8 +87,8 @@
 															</div>
 													</div>
 											</div>
-									</div>		
-											
+									</div>
+
 
 									<!--EndDelete-->
 									<div class="modal fade" id="{{$lihat->id}}">
@@ -107,19 +107,19 @@
 															<div class="form-group">
 																<input type="text" class="form-control" name="name" value="{{$lihat->name}}">
 															</div>
-															<div class="form-group">
-									                        <label for='esi_id'>Edit Unit Eselon I</label>
-									                        <select name="esi_id" class="form-control">
-									                            <option value="" class="disable selected">Pilih Unit Eselon I</option>
-									                            @foreach($esi as $es)
-									                            <option value="{{$es->id}}" >{{$es->name}}</option>
-									                            @endforeach
-									                        </select>
-									                   		</div>
 									                   		<div class="form-group">
 																	<label for='kd_satker'>Kode Satuan Kerja</label>
-																	<input type="text" name="kd_satker" class="form-control" placeholder="Tambahkan Kode Satuan Kerja baru">
-															</div>
+																	<input type="text" name="kd_satker" class="form-control" value="{{$lihat->kd_satker}}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for='esi_id'>Edit Unit Eselon I</label>
+                                                                <select name="esi_id" class="form-control">
+                                                                    <option value="" class="disable selected">Pilih Unit Eselon I</option>
+                                                                    @foreach($esi as $es)
+                                                                    <option value="{{$es->id}}" >{{$es->name}}</option>
+                                                                    @endforeach
+                                                                </select>
+									                   		</div>
 																<button type="submit" class="btn btn-primary">Simpan</button>
 																</form>
 															</div>

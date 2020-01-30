@@ -16,36 +16,26 @@
 <div class=" col-lg-9 box box-primary">
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form role="form" action="{{route('esii.store')}}" method="post">
               <div class="box-body">
+                @csrf
                 <div class="form-group">
-                  <label>Eselon I</label>
-                  <select class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Eselon II</label>
-                  <select class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
+                  <label>Satuan Kerja</label>
+                  <select name="esi_id" class="form-control">
+                    <option disabled selected="true">Pilih Satuan Kerja</option>
+                    @foreach($esii as $sii)
+                    <option value={{$sii->id}}>{{$sii->name}}</option>
+                    @endforeach
                   </select>
                 </div>
                 <div class="form-group">
                   <label>Tahun</label>
                   <select class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
+
+                        @for($x = $now; $x >= 2010; $x--)
+                        <option>$x</option>
+                        @endfor
+
                   </select>
                 </div>
                 <div class="form-group">

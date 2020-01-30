@@ -14,24 +14,18 @@
 Route::get('/', function () {
     return view('back.dash');
 });
-Route::get('/input-bpk', function () {
-    return view('back.bpk.input');
-});
-Route::get('/input-itjen', function () {
-    return view('back.itjen.input');
-});
 Route::get('/import-bpk', function () {
     return view('back.bpk.import');
 });
 Route::get('/import-itjen', function () {
     return view('back.itjen.import');
 });
-Route::get('/add-esi', function () {
-    return view('back.unit.esi');
-});
 
-Route::resource('esi','UnitEsI')->middleware('auth');
-Route::resource('esii','UnitEsII')->middleware('auth');
+
+Route::resource('esi','UnitEsI');
+Route::resource('esii','UnitEsII');;
+Route::resource('bpk','TemuanBpkController');;
+Route::resource('itjen','TemuanItjenController');;
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
