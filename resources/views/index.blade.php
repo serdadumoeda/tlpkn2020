@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="{{asset('css/admin/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('css/admin/bootstrap3-wysihtml5.min.css')}}">
+  @yield('css')
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -358,5 +359,7 @@
 <script src="{{asset('js/admin/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('js/admin/demo.js')}}"></script>
+@yield('script')
 </body>
+
 </html>

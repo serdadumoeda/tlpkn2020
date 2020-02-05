@@ -16,7 +16,7 @@ class CreateTemuanbpksTable extends Migration
         Schema::create('temuanbpks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('esi_id')->nullable()->unsigned();
-            $table->integer('esii_id')->nullable()->unsigned();
+            $table->unsignedBigInteger('esii_id');
             $table->string('tahun');
             $table->string('no_rhs');
             $table->text('temuan');
@@ -26,6 +26,7 @@ class CreateTemuanbpksTable extends Migration
             $table->text('keterangan');
             $table->string('sktjm');
             $table->timestamps();
+            $table->foreign('esii_id')->references('id')->on('unit_eselon_ii')->onDelete('cascade');
         });
     }
 

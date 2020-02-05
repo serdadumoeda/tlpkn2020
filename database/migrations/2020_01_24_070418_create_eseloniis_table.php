@@ -19,7 +19,6 @@ class CreateEseloniisTable extends Migration
             $table->string('kd_satker');
             $table->string('name');
             $table->unsignedBigInteger('esi_id');
-            
             $table->timestamps();
             $table->foreign('esi_id')->references('id')->on('unit_eselon_i')->onDelete('cascade');
         });

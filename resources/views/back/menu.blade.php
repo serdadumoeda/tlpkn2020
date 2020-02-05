@@ -18,8 +18,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{route('bpk.create')}}"><i class="fa fa-circle-o"></i> Isi Temuan</a></li>
-            <li><a href="/import-bpk"><i class="fa fa-circle-o"></i> Import Temuan</a></li>
-            <li><a href="/list-bpk"><i class="fa fa-circle-o"></i> Daftar Temuan</a></li>
+            <li><a href="/"><i class="fa fa-circle-o"></i> Import Temuan</a></li>
+            <li><a href="{{route('bpk.index')}}"><i class="fa fa-circle-o"></i> Daftar Temuan</a></li>
           </ul>
         </li>
         <li class="treeview">
