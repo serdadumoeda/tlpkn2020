@@ -8,14 +8,12 @@
         <small>Isi Temuan</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> BPK</a></li>
-        <li class="active">isi temuan</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">BPK</li>
       </ol>
 @endsection
 @section('konten')
       <div class=" col-lg-9 box box-primary">
-            <!-- /.box-header -->
-            <!-- form start -->
             <form role="form" action="{{route('bpk.store')}}" method="post">
               <div class="box-body">
                 @csrf

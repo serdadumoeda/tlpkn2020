@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Eselonii;
+use App\Temuanitjen;
 
 class TemuanItjenController extends Controller
 {
@@ -13,7 +15,9 @@ class TemuanItjenController extends Controller
      */
     public function index()
     {
-        //
+        $show = Temuanitjen::all();
+        $now = date('Y');
+        return view('back.itjen.list',["show"=>$show,"now"=>$now]);
     }
 
     /**
@@ -23,7 +27,9 @@ class TemuanItjenController extends Controller
      */
     public function create()
     {
-        //
+        $now = date('Y');
+        $esii = Eselonii::all();
+        return view('back.itjen.input',["esii"=>$esii,"now"=>$now]);
     }
 
     /**
@@ -34,7 +40,24 @@ class TemuanItjenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Temuanitjen;
+        $post->esi_id = $request->esi;
+        $post->esii_id = $request->satker;
+        $post->tahun_periksa = $request->thn;
+        $post->uraian = $request->uraian;
+        $post->no_rhs = $request->norhs;
+        $post->kerugian_negara = $request->rugi_negara;
+        $post->tindak_lanjut = $request->tl;
+        $post->sisa = $request->rugi_negara - $request->tl;
+        $post->keterangan = $request->ket;
+        $uploadedFile = $request->file('berkas');
+        if($uploadedFile==null){
+            $post->sktjm = "";
+        }else{
+            $post->sktjm = $uploadedFile->store('public/itjen');
+        }
+        $post->save();
+        return back()->withInfo('Temuan baru berhasil ditambahkan.... ');
     }
 
     /**
@@ -68,7 +91,25 @@ class TemuanItjenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Temuanitjen::find($id);
+        $post->esi_id=$request->esi;
+        $post->esii_id=$request->satker;
+        $post->tahun_periksa=$request->thn;
+        $post->no_rhs=$request->norhs;
+        $post->uraian=$request->uraian;
+        $post->kerugian_negara=$request->rugi_negara;
+        $post->tindak_lanjut=$request->tl;
+        $post->sisa=$request->rugi_negara  - $request->tl;
+        $post->keterangan=$request->ket;
+
+        $uploadedFile = $request->file('berkas');
+        if($uploadedFile==null){
+            $post->sktjm = "";
+        }else{
+            $post->sktjm = $uploadedFile->store('public/itjen');
+        }
+        $post->save();
+        return back()->withInfo('Temuan berhasil diubah.... ');
     }
 
     /**
@@ -79,6 +120,8 @@ class TemuanItjenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $del = Temuanitjen::find($id);
+        $del->delete();
+        return back()->withInfo('Temuan berhasil dihapus.... ');
     }
 }

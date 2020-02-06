@@ -16,8 +16,9 @@ class TemuanBpkController extends Controller
      */
     public function index()
     {
-        $show = Eselonii::all();
-        return view('back.bpk.list');
+        $show = Temuanbpk::all();
+        $now = date('Y');
+        return view('back.bpk.list',["show"=>$show,"now"=>$now]);
     }
 
     /**
@@ -109,7 +110,25 @@ class TemuanBpkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Temuanbpk::find($id);
+        $post->esi_id=$request->esi;
+        $post->esii_id=$request->satker;
+        $post->tahun=$request->thn;
+        $post->no_rhs=$request->norhs;
+        $post->temuan=$request->temuan;
+        $post->kerugian_negara=$request->rugi_negara;
+        $post->tindak_lanjut=$request->tl;
+        $post->sisa=$request->rugi_negara  - $request->tl;
+        $post->keterangan=$request->ket;
+
+        $uploadedFile = $request->file('berkas');
+        if($uploadedFile==null){
+            $post->sktjm = "";
+        }else{
+            $post->sktjm = $uploadedFile->store('public/bpk');
+        }
+        $post->save();
+        return back()->withInfo('Temuan baru berhasil diubah.... ');
     }
 
     /**
@@ -120,6 +139,8 @@ class TemuanBpkController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $del = Temuanbpk::find($id);
+        $del->delete();
+        return back()->withInfo('Temuan berhasil dihapus.... ');
     }
 }

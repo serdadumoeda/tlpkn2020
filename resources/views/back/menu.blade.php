@@ -31,9 +31,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/input-itjen"><i class="fa fa-circle-o"></i> Isi Temuan</a></li>
+            <li><a href="{{route('itjen.create')}}"><i class="fa fa-circle-o"></i> Isi Temuan</a></li>
             <li><a href="/import-itjen"><i class="fa fa-circle-o"></i> Import Temuan</a></li>
-            <li><a href="/list-itjen"><i class="fa fa-circle-o"></i> Daftar Temuan</a></li>
+            <li><a href="{{route('itjen.index')}}"><i class="fa fa-circle-o"></i> Daftar Temuan</a></li>
           </ul>
         </li>
         <li class="treeview">

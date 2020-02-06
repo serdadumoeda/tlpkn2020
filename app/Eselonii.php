@@ -15,4 +15,8 @@ class Eselonii extends Model
     public function temuanbpk(){
         return $this->hasMany("App\Temuanbpk");
     }
+
+    public function temuanitjen(){
+        return $this->hasMany("App\Temuanitjen");
+    }
 }
