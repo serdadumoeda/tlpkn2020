@@ -47,120 +47,21 @@
                   <td>{{$lihat->tahun_periksa}}</td>
                   <td>{{$lihat->no_rhs}}</td>
                   <td>{{$lihat->uraian}}</td>
-                  <td>{{$lihat->kerugian_negara}}</td>
-                  <td>{{$lihat->tindak_lanjut}}</td>
-                  <td>{{$lihat->sisa}}</td>
-                  <td>{{$lihat->keterangan}}</td>
+                  <td>Rp&nbsp;{{number_format($lihat->kerugian_negara)}}</td>
+                  <td><a data-toggle="modal" href="#{{$lihat->id}}-non" style="color: blue">Rp&nbsp;{{number_format($lihat->tindak_lanjut)}}&nbsp;<i class="fa fa-caret-right"></i></a></td>
+                  <td>Rp&nbsp;{{number_format($lihat->sisa)}}</td>
+                  @if($lihat->sisa==0)
+                    <td><b>Non Piutang</b><br>{{$lihat->keterangan}}</td>
+                  @else
+                    <td><b>Piutang</b><br>{{$lihat->keterangan}}</td>
+                  @endif
                   <td>
                     <a href="#{{$lihat->id}}" data-toggle="modal"><i class="fa fa-edit"></i>
                      <a href="#{{$lihat->id}}-delete" data-toggle="modal"><i class="fa fa-trash-o"></i>
                   </td>
-
-                  <div class="modal fade" id="{{$lihat->id}}-delete">
-                          <div class="modal-dialog">
-                                  <div class="modal-content">
-                                          <div class="modal-header">
-                                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                                  &times;
-                                                  </button>
-                                                  <h4 class="modal-title"> Apakah anda ingin menghapus "<b>{{$lihat->no_rhs}}</b>"?</h4>
-                                          </div>
-                                          <div class="modal-body">
-                                                  <form action="{{route('itjen.destroy',$lihat->id)}}" method="post">
-                                                  @csrf
-                                                  {{method_field('DELETE')}}
-                                                  <input type="submit" value="Hapus" class="btn btn-danger btn-block">
-                                                  </form>
-                                          </div>
-                                  </div>
-                          </div>
-                  </div>
-
-                  <div class="modal fade" id="{{$lihat->id}}">
-                      <div class="modal-dialog">
-                              <div class="modal-content">
-                                  <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal" aria-hidden='true'>
-                                              &times;
-                                      </button>
-                                      <h4 class="modal-title">Edit Temuan Inspektorat Jenderal</h4>
-                                      </div>
-                                        <div class="modal-body">
-                                          <form role="form" action="{{route('itjen.update',$lihat->id)}}" method="post">
-                                            <div class="box-body">
-                                              @csrf
-                                              {{method_field('put')}}
-                                              <div class="form-group">
-                                                <label>Eselon I</label>
-                                                <select name="esi" id="esi" class="form-control">
-                                                  <option disabled selected="true">Pilih Eselon I</option>
-                                                  <option value={{$lihat->esii->esi->id}}>{{$lihat->esii->esi->name}}</option>
-                                                </select>
-                                              </div>
-                                              <div class="form-group">
-                                                <label>Satuan Kerja</label>
-                                                <select name="satker" class="form-control">
-                                                  <option disabled selected="true">Pilih Satuan Kerja</option>
-                                                  <option value={{$lihat->esii->id}}>{{$lihat->esii->name}}</option>
-                                                </select>
-                                              </div>
-                                              <div class="form-group">
-                                                <label>Tahun</label>
-                                                <select name="thn" class="form-control">
-                                                <option disabled selected="true">Pilih Tahun</option>
-                                                      @for($x = $now; $x >= 2010; $x--)
-                                                      <option value={{$x}}>{{$x}}</option>
-                                                      @endfor
-                                                </select>
-                                              </div>
-                                              <div class="form-group">
-                                                <label>Nomor RHS</label>
-                                                <input type="text" class="form-control" name="norhs" value="{{$lihat->no_rhs}}">
-                                              </div>
-                                              <div class="form-group">
-                                                <label>Uraian</label>
-                                                <textarea class="form-control" name="uraian" rows="3" >{{$lihat->uraian}}</textarea>
-                                              </div>
-                                              <div class="form-group">
-                                                <label>Kerugian negara</label>
-                                                <input type="text" class="form-control" name="rugi_negara" value="{{$lihat->kerugian_negara}}">
-                                              </div>
-                                              <div class="row">
-                                              <div class="col-md-6">
-                                              <div class="form-group">
-                                                <label>Tindak lanjut</label>
-                                                <input type="text" class="form-control" name="tl" value="{{$lihat->tindak_lanjut}}">
-                                              </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                              <div class="form-group">
-                                                <label>Tanggal</label>
-                                                <input type="text" class="form-control" name="tgl" placeholder="Masukkan Tanggal">
-                                              </div>
-                                              </div>
-                                              </div>
-                                              <div class="form-group">
-                                                <label>Keterangan</label>
-                                                <textarea class="form-control" rows="3" name="ket" >{{$lihat->keterangan}}</textarea>
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="unggahBerkas">Unggah berkas</label>
-                                                <input type="file" name="berkas">
-
-                                                <p class="help-block">format file .pdf dengan ukuran maksimal 1 MB</p>
-                                              </div>
-                                            </div>
-                                            <div class="box-footer">
-                                              <button type="submit" class="btn btn-primary">Submit</button>
-                                            </div>
-                                          </form>
-                                        </div>
-                                      </div>
-                                  </div>
-                              </div>
-                      </div>
-                  </div>
-
+                  @include('back.ITJEN.modal.deletelist')
+                  @include('back.ITJEN.modal.editlist')
+                 
                  @endforeach
                 </tr>
                 </tbody>
@@ -181,6 +82,10 @@
                 </tr>
                 </tfoot>
               </table>
+
+              @foreach($show as $lihat)
+                 @include('back.ITJEN.modal.ntpnlist')
+              @endforeach
             </div>
             <!-- /.box-body -->
           </div>
@@ -203,5 +108,12 @@
       'autoWidth'   : false
     })
   })
+</script>
+<script>
+    $(function(){
+        $('.add-data').click(function(){
+            $('table.table').append('<tr><td><input type="hidden" value="{{$lihat->id}}" name="id"></td><td><input type="text" name="ntpn[]" placeholder="Masukkan Nomor NTPN" class="form-control name_list" required="" /></td><td><input type="text" name="setoran[]" placeholder="Masukkan Jumlah Setoran" class="form-control name_list" required="" /></td></tr>')
+        })
+    })
 </script>
 @endsection

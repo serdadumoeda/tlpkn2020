@@ -66,8 +66,14 @@
                 </div>
                 <div class="col-md-6">
                 <div class="form-group">
-                  <label>Tanggal</label>
-                  <input type="text" class="form-control" name="tgl" placeholder="Masukkan Tanggal">
+                <label>Date:</label>
+
+                  <div class="input-group date">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control pull-right" id="datepicker">
+                  </div>
                 </div>
                 </div>
                 </div>
@@ -106,4 +112,10 @@
         });
       });
 
+</script>
+<script src="{{asset('js/admin/bootstrap-datepicker.min.js')}}"></script>
+<script type="text/javascript">
+$('#datepicker').datepicker({
+      autoclose: true
+    })
 </script>
